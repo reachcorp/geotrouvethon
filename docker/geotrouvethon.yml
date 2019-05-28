@@ -1,6 +1,8 @@
 version: '3'
 services:
   geotrouvethon:
+    image: reachhubcorp/geotrouvethon:latest
+    container_name: geotrouvethon
     build:
       context: ./context/
     ports:
