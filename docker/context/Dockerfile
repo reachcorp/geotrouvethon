@@ -7,15 +7,15 @@ RUN apt-get update && \
     #sed -ri 's/^PermitRootLogin\s+.*/PermitRootLogin yes/' /etc/ssh/sshd_config
     #sed -ri 's/UsePAM yes/#UsePAM yes/g' /etc/ssh/sshd_config && \
 
+RUN apt-get update && \
+    apt-get install -y python3-pip && \
+    apt-get install -y curl && \
+    apt-get install -y unzip && \
+    apt-get install -y vim
+
 COPY sshd_config /etc/ssh/sshd_config
 RUN mkdir /app
 COPY dockerdist/*.* /app/
-
-RUN apt-get update
-RUN apt-get install -y python3-pip
-RUN apt-get install -y curl
-RUN apt-get install -y unzip
-RUN apt-get install -y vim
 
 RUN pip3 install --no-cache-dir -r /app/requirements.txt
 

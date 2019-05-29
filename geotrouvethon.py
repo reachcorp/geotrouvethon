@@ -1,8 +1,10 @@
 from flask import Flask
 from flask import jsonify
 from geopy import geocoders
+import os
 
-geotrouvethon_port = 9966
+geotrouvethon_url = str(os.environ["GEOTROUVETHON_URL"])
+geotrouvethon_port = str(os.environ["GEOTROUVETHON_PORT"])
 
 app = Flask(__name__)
 
@@ -27,4 +29,4 @@ def get_location(location_name):
 
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=geotrouvethon_port)
+    app.run(host=geotrouvethon_url, port=geotrouvethon_port)

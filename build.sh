@@ -1,3 +1,4 @@
+mkdir -p ./docker/context/dockerdist
 rm -rf ./docker/context/dockerdist/*
 cp -Rf ./geotrouvethon.iml ./docker/context/dockerdist/
 cp -Rf ./geotrouvethon.py ./docker/context/dockerdist/
